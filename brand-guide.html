@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Guide - Tash Cornack</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Permanent+Marker&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #2d8a7e;
+    --teal-deep: #1f635a;
+    --hot-pink: #e84393;
+    --charcoal: #2d2d2d;
+    --berry: #7b2d5f;
+    --sage: #6b7c6e;
+    --sand: #f5f0eb;
+    --warm-white: #faf8f5;
+    --warm-grey: #939290;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a2e 50%, var(--teal-deep) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(45, 138, 126, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(232, 67, 147, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(107, 124, 110, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cover h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(48px, 8vw, 96px);
+    color: #fff;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 0 var(--teal-deep);
+  }
+
+  .cover .tagline {
+    font-family: 'Caveat Brush', cursive;
+    font-size: clamp(24px, 4vw, 42px);
+    color: var(--hot-pink);
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 40px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover .divider-brush {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--hot-pink));
+    margin: 24px auto;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-dark {
+    background: var(--charcoal);
+    color: #fff;
+    max-width: 100%;
+    padding: 80px 40px;
+  }
+
+  .section-dark .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-teal {
+    background: var(--teal);
+    color: #fff;
+    max-width: 100%;
+    padding: 80px 40px;
+  }
+
+  .section-teal .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-sand {
+    background: var(--sand);
+    max-width: 100%;
+    padding: 80px 40px;
+  }
+
+  .section-sand .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 12px;
+    color: var(--charcoal);
+  }
+
+  .section-dark h2,
+  .section-teal h2 {
+    color: #fff;
+  }
+
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    margin-bottom: 8px;
+  }
+
+  .section-dark .section-label { color: rgba(255,255,255,0.4); }
+  .section-teal .section-label { color: rgba(255,255,255,0.5); }
+
+  /* BRAND STORY */
+  .brand-story p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 700px;
+    color: var(--charcoal);
+  }
+
+  .brand-story .highlight {
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  /* COLOUR PALETTE */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .swatch {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .swatch-color {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px 16px;
+  }
+
+  .swatch-info {
+    padding: 16px;
+  }
+
+  .swatch-name {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 20px;
+    color: var(--charcoal);
+  }
+
+  .swatch-hex {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--warm-grey);
+    margin-top: 2px;
+    letter-spacing: 1px;
+  }
+
+  .swatch-use {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--warm-grey);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* TYPOGRAPHY */
+  .type-specimen {
+    margin-top: 40px;
+  }
+
+  .type-row {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .type-row:last-child { border-bottom: none; }
+
+  .type-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--hot-pink);
+    margin-bottom: 12px;
+  }
+
+  .type-sample-brush {
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.2;
+  }
+
+  .type-sample-accent {
+    font-family: 'Caveat Brush', cursive;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.3;
+    color: var(--hot-pink);
+  }
+
+  .type-sample-serif {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .type-sample-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 600px;
+  }
+
+  .type-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+  }
+
+  /* BRAND VOICE */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .voice-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(45, 138, 126, 0.3);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .voice-card h3 {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 24px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .voice-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* BRAND WORDS */
+  .brand-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .brand-word {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 18px;
+    padding: 10px 24px;
+    border-radius: 40px;
+    border: 2px solid;
+  }
+
+  .brand-word.teal { border-color: var(--teal); color: var(--teal); }
+  .brand-word.pink { border-color: var(--hot-pink); color: var(--hot-pink); }
+  .brand-word.sage { border-color: var(--sage); color: var(--sage); }
+
+  /* DO / DON'T */
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+  }
+
+  .do-col h3, .dont-col h3 {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .do-col h3 { color: var(--teal); }
+  .dont-col h3 { color: var(--hot-pink); }
+
+  .do-col ul, .dont-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .do-col li, .dont-col li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    line-height: 1.5;
+  }
+
+  .do-col li::before { content: '+ '; color: var(--teal); font-weight: 600; }
+  .dont-col li::before { content: '- '; color: var(--hot-pink); font-weight: 600; }
+
+  /* MOOD BOARD SECTION */
+  .mood-description {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+    max-width: 700px;
+  }
+
+  .mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .mood-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: 1px solid rgba(232, 67, 147, 0.4);
+    border-radius: 30px;
+    color: var(--hot-pink);
+  }
+
+  /* SOCIAL TEMPLATES */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 700px) {
+    .social-grid { grid-template-columns: 1fr; }
+  }
+
+  .social-mock {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .social-mock.style-1 {
+    background: var(--charcoal);
+    border: 2px solid var(--teal);
+  }
+
+  .social-mock.style-2 {
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+  }
+
+  .social-mock.style-3 {
+    background: var(--sand);
+    border: 2px solid var(--sage);
+  }
+
+  .social-mock .mock-text {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .social-mock.style-1 .mock-text { color: #fff; }
+  .social-mock.style-2 .mock-text { color: #fff; }
+  .social-mock.style-3 .mock-text { color: var(--charcoal); }
+
+  .social-mock .mock-accent {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+
+  .social-mock.style-1 .mock-accent { color: var(--hot-pink); }
+  .social-mock.style-2 .mock-accent { color: var(--sand); }
+  .social-mock.style-3 .mock-accent { color: var(--teal); }
+
+  .social-mock .mock-handle {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 16px;
+    opacity: 0.5;
+  }
+
+  /* PHOTO DIRECTION */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: 1fr; }
+  }
+
+  .photo-direction-card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 32px;
+    border-left: 4px solid var(--teal);
+  }
+
+  .photo-direction-card h3 {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 22px;
+    color: var(--hot-pink);
+    margin-bottom: 8px;
+  }
+
+  .photo-direction-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 60px 40px;
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.3);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .footer span {
+    color: var(--hot-pink);
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="subtitle">Brand Identity Guide</div>
+  <h1>TASH CORNACK</h1>
+  <div class="divider-brush"></div>
+  <div class="tagline">be different, babe</div>
+  <div class="subtitle" style="margin-top: 60px;">Holistic Wellness Advocate</div>
+</div>
+
+<!-- BRAND STORY -->
+<div class="section brand-story">
+  <div class="section-label">01 / Brand Essence</div>
+  <h2>The Brand</h2>
+  <p style="margin-top: 24px;">
+    Tash Cornack is where <span class="highlight">raw, real wellness</span> meets urban edge.
+    A mum, a wellness advocate, and a woman who refuses to be beige.
+    She brings holistic living into the homes of busy families -
+    no fluff, no filtered perfection, just <span class="highlight">bold moves and genuine care.</span>
+  </p>
+  <p style="margin-top: 20px;">
+    Her brand lives at the intersection of nature and neon -
+    <span class="highlight">boardwalk sunsets and city grit.</span>
+    She's the friend who tells you the truth, laughs too loud,
+    and then hands you something that actually changes your life.
+  </p>
+</div>
+
+<!-- COLOUR PALETTE -->
+<div class="section">
+  <div class="section-label">02 / Colour Palette</div>
+  <h2>Colours</h2>
+
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background: var(--teal);">
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">Ocean Teal</div>
+        <div class="swatch-hex">#2D8A7E</div>
+        <div class="swatch-use">Primary brand colour. Headers, buttons, icons. The grounding force.</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background: var(--hot-pink);">
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">Neon Pink</div>
+        <div class="swatch-hex">#E84393</div>
+        <div class="swatch-use">Accent colour. Highlights, CTAs, moments of "hell yes." Use sparingly for impact.</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background: var(--charcoal);">
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">Urban Charcoal</div>
+        <div class="swatch-hex">#2D2D2D</div>
+        <div class="swatch-use">Dark backgrounds, text, contrast. The urban backbone.</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background: var(--berry);">
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">Berry Crush</div>
+        <div class="swatch-hex">#7B2D5F</div>
+        <div class="swatch-use">Deep accent. Headers on light backgrounds, overlay tones, depth.</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background: var(--sage);">
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sage Leaf</div>
+        <div class="swatch-hex">#6B7C6E</div>
+        <div class="swatch-use">Nature element. Soft backgrounds, secondary text, calm balance.</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background: var(--sand);">
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">Warm Sand</div>
+        <div class="swatch-hex">#F5F0EB</div>
+        <div class="swatch-use">Light backgrounds, breathing room. The warm exhale between bold moments.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section-dark">
+  <div class="inner">
+    <div class="section-label">03 / Typography</div>
+    <h2>Type System</h2>
+
+    <div class="type-specimen">
+      <div class="type-row">
+        <div class="type-label">Primary Heading - Brush Stroke</div>
+        <div class="type-sample-brush">Be Different, Babe</div>
+        <div class="type-meta">Permanent Marker / Google Fonts / Bold, raw, unapologetic</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-label">Accent - Handwritten Energy</div>
+        <div class="type-sample-accent">real talk, real wellness, real results</div>
+        <div class="type-meta">Caveat Brush / Google Fonts / Warm, personal, approachable</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-label">Editorial - Elegant Moments</div>
+        <div class="type-sample-serif">"She's the one who changed everything for our family - not with a sales pitch, but with genuine care and a water machine that actually works."</div>
+        <div class="type-meta">Playfair Display Italic / Google Fonts / Testimonials, quotes, storytelling</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-label">Body - Clean & Clear</div>
+        <div class="type-sample-body">Your body deserves better than what's coming out of the tap. Let's talk about what's actually in your water - and what you can do about it. No scare tactics, just science and solutions.</div>
+        <div class="type-meta">Inter Light (300) / Google Fonts / Body copy, descriptions, captions</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND VOICE -->
+<div class="section-teal">
+  <div class="inner">
+    <div class="section-label">04 / Brand Voice</div>
+    <h2>How Tash Sounds</h2>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <h3>Bold, Not Bossy</h3>
+        <p>She speaks with confidence but never talks down. She's the friend who says "babe, you need to hear this" - direct, warm, and always coming from a place of care. No corporate speak. No wishy-washy disclaimers.</p>
+      </div>
+
+      <div class="voice-card">
+        <h3>Real, Not Raw</h3>
+        <p>Tash shares the truth - including the messy bits - but she's not performing struggle. She's honest about perimenopause, about parenting neurodivergent kids, about building something from scratch. Authentic without being oversharing.</p>
+      </div>
+
+      <div class="voice-card">
+        <h3>Cheeky, Not Crude</h3>
+        <p>"Be a badass with a good ass" energy. She can drop a one-liner that makes you snort-laugh, then pivot into something that genuinely helps. Humour is her superpower - it makes wellness feel accessible, not preachy.</p>
+      </div>
+
+      <div class="voice-card">
+        <h3>Guide, Not Guru</h3>
+        <p>She's not on a pedestal - she's walking beside you. She shares what worked for her family, invites you to try it, and respects your decision either way. Education over manipulation. Always.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND PERSONALITY WORDS -->
+<div class="section">
+  <div class="section-label">05 / Brand Personality</div>
+  <h2>Brand Words</h2>
+
+  <div class="brand-words">
+    <span class="brand-word teal">Unapologetic</span>
+    <span class="brand-word pink">Bold</span>
+    <span class="brand-word sage">Grounded</span>
+    <span class="brand-word teal">Real</span>
+    <span class="brand-word pink">Cheeky</span>
+    <span class="brand-word sage">Nurturing</span>
+    <span class="brand-word teal">Colourful</span>
+    <span class="brand-word pink">Edgy</span>
+    <span class="brand-word sage">Holistic</span>
+    <span class="brand-word teal">Legacy-driven</span>
+  </div>
+</div>
+
+<!-- DO / DON'T -->
+<div class="section-sand">
+  <div class="inner">
+    <div class="section-label">06 / Brand Do's & Don'ts</div>
+    <h2>The Rules</h2>
+
+    <div class="do-dont">
+      <div class="do-col">
+        <h3>Yes, Always</h3>
+        <ul>
+          <li>Lead with HER story, not the product</li>
+          <li>Use casual, conversational language</li>
+          <li>Show the real life - messy desk, loud laugh, sunset walks</li>
+          <li>Educate first, sell second</li>
+          <li>Mix urban edge with natural warmth</li>
+          <li>Use bold colour - teal and pink are your anchors</li>
+          <li>Celebrate the body, the journey, the imperfection</li>
+          <li>Speak to mums, wellness seekers, and health professionals as equals</li>
+        </ul>
+      </div>
+
+      <div class="dont-col">
+        <h3>Never, Ever</h3>
+        <ul>
+          <li>Use scripted MLM/distributor language ("join my team!", "boss babe")</li>
+          <li>Make health claims about products (no "cures", "heals", "alkaline miracle")</li>
+          <li>Use stock photos - Tash IS the brand</li>
+          <li>Go pastel, minimal, or corporate</li>
+          <li>Put the Enagic logo bigger than her name</li>
+          <li>Use beige, baby pink, or washed-out tones</li>
+          <li>Post product-only content without her face or story</li>
+          <li>Sound like every other wellness page on Instagram</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOOD / AESTHETIC DIRECTION -->
+<div class="section-dark">
+  <div class="inner">
+    <div class="section-label">07 / Aesthetic Direction</div>
+    <h2>The Mood</h2>
+
+    <p class="mood-description" style="margin-top: 24px;">
+      Nature meets neon. Boardwalk sunsets and city walls.
+      The brand aesthetic lives in the tension between earthy warmth and urban boldness -
+      a coastal sunset filtered through a neon-lit laneway.
+      It's feminine but never fragile. Colourful but never chaotic.
+      Think: tattoo parlour meets wellness retreat.
+    </p>
+
+    <div class="mood-tags">
+      <span class="mood-tag">Neon Signs</span>
+      <span class="mood-tag">Coastal Sunsets</span>
+      <span class="mood-tag">Street Art</span>
+      <span class="mood-tag">Brush Strokes</span>
+      <span class="mood-tag">Raw Textures</span>
+      <span class="mood-tag">Bold Colour</span>
+      <span class="mood-tag">Golden Hour</span>
+      <span class="mood-tag">Graffiti Hearts</span>
+      <span class="mood-tag">Body Positive</span>
+      <span class="mood-tag">Botanical Dark</span>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO DIRECTION -->
+<div class="section-dark" style="padding-top: 0;">
+  <div class="inner">
+    <div class="section-label">08 / Photo Direction</div>
+    <h2>Photography Style</h2>
+
+    <div class="photo-grid">
+      <div class="photo-direction-card">
+        <h3>Selfie Queen</h3>
+        <p>Tash's brand photos are real selfies - not polished studio shoots. Keep it genuine. Natural light, real expressions (the big laugh, the knowing smile), real environments. Her coloured hair and bold lip ARE the brand.</p>
+      </div>
+
+      <div class="photo-direction-card">
+        <h3>Environment Matters</h3>
+        <p>Shoot in places that tell the story: home office with the laptop glowing, coastal walks, the kitchen where she makes Kangen water demos happen. Mix indoor (urban, moody) with outdoor (nature, golden hour).</p>
+      </div>
+
+      <div class="photo-direction-card">
+        <h3>Colour Pops</h3>
+        <p>Her teal hair, berry lips, and colourful wardrobe ARE the palette in action. Let the brand colours show up naturally through what she wears and where she shoots. No need for heavy colour grading.</p>
+      </div>
+
+      <div class="photo-direction-card">
+        <h3>No Stock, No Flats</h3>
+        <p>Never use stock photography. Never do flat-lay product shots without Tash in them. She IS the brand. Every image should feel like it was taken by a friend who caught a real moment.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL TEMPLATE PREVIEWS -->
+<div class="section">
+  <div class="section-label">09 / Social Media Templates</div>
+  <h2>Post Styles</h2>
+
+  <div class="social-grid">
+    <div class="social-mock style-1">
+      <div class="mock-text">Your tap water is lying to you.</div>
+      <div class="mock-accent">let's talk about it</div>
+      <div class="mock-handle">@tash.cornack</div>
+    </div>
+
+    <div class="social-mock style-2">
+      <div class="mock-text">Real wellness starts at home.</div>
+      <div class="mock-accent">- tash</div>
+      <div class="mock-handle">@tash.cornack</div>
+    </div>
+
+    <div class="social-mock style-3">
+      <div class="mock-text">Be a badass mum with a wellness plan.</div>
+      <div class="mock-accent">no fluff. just results.</div>
+      <div class="mock-handle">@tash.cornack</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Brand Guide created for <span>Tash Cornack</span> by AI with Soul<br>
+  <span style="opacity: 0.5; font-size: 10px; margin-top: 8px; display: inline-block;">April 2026</span>
+</div>
+
+</body>
+</html>
