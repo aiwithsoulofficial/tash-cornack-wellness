@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="What the top Skool communities actually charge, how many members they have, and what the weekly workload really is.">
+<meta name="theme-color" content="#1a5c54">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+<title>Should Tash Build a Skool?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#faf8f5;
+  --surface:#ffffff;
+  --surface-2:#f3eee7;
+  --ink:#16211f;
+  --ink-soft:#55625f;
+  --ink-faint:#8a938f;
+  --line:rgba(26,92,84,.16);
+  --teal:#2d8a7e;
+  --teal-deep:#1a5c54;
+  --pink:#d4357f;
+  --berry:#7b2d5f;
+  --amber:#b4761f;
+  --shadow:0 1px 2px rgba(20,50,45,.05),0 8px 24px rgba(20,50,45,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0e1614;
+    --surface:#15201e;
+    --surface-2:#1b2725;
+    --ink:#eaf0ee;
+    --ink-soft:#a3b2ae;
+    --ink-faint:#75837f;
+    --line:rgba(140,215,200,.16);
+    --teal:#54b6a6;
+    --teal-deep:#7fd0c0;
+    --pink:#ff74b0;
+    --berry:#d98cba;
+    --amber:#e0a44a;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0e1614;
+  --surface:#15201e;
+  --surface-2:#1b2725;
+  --ink:#eaf0ee;
+  --ink-soft:#a3b2ae;
+  --ink-faint:#75837f;
+  --line:rgba(140,215,200,.16);
+  --teal:#54b6a6;
+  --teal-deep:#7fd0c0;
+  --pink:#ff74b0;
+  --berry:#d98cba;
+  --amber:#e0a44a;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+
+/* ---------- masthead ---------- */
+.mast{padding:66px 0 44px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:'Permanent Marker',cursive;
+  font-size:15px;letter-spacing:.5px;color:var(--pink);
+  margin:0 0 14px;
+}
+h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;
+  font-size:clamp(38px,7.5vw,62px);
+  line-height:1.05;
+  margin:0 0 20px;
+  text-wrap:balance;
+  letter-spacing:-.015em;
+}
+.standfirst{
+  font-size:18px;color:var(--ink-soft);max-width:62ch;margin:0 0 26px;
+}
+.standfirst em{color:var(--ink);font-style:italic}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:13px;color:var(--ink-faint);
+  padding-top:20px;border-top:1px solid var(--line);
+}
+.meta b{color:var(--teal-deep);font-weight:500}
+
+/* ---------- generic section ---------- */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+h2{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:clamp(25px,4vw,33px);
+  margin:0 0 8px;line-height:1.2;text-wrap:balance;
+}
+.lede{color:var(--ink-soft);font-size:16.5px;margin:0 0 30px;max-width:62ch}
+p{max-width:64ch}
+
+/* ---------- the four pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px;margin-top:26px}
+.pillar{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:22px 20px;box-shadow:var(--shadow);
+  border-top:3px solid var(--pc,var(--teal));
+}
+.pillar .pname{
+  font-family:'Permanent Marker',cursive;
+  font-size:16px;color:var(--pc,var(--teal));margin-bottom:9px;letter-spacing:.3px;
+}
+.pillar p{font-size:14.5px;color:var(--ink-soft);margin:0;line-height:1.6}
+.p-sceptic{--pc:var(--teal)}
+.p-verdict{--pc:var(--berry)}
+.p-retest{--pc:var(--amber)}
+.p-woo{--pc:var(--pink)}
+
+/* ---------- rules ---------- */
+.rules{display:flex;flex-direction:column;gap:2px;margin-top:24px}
+.rule{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px dashed var(--line);
+}
+.rule:last-child{border-bottom:none}
+.rule .rk{
+  font-family:'Permanent Marker',cursive;font-size:14px;color:var(--pink);
+  flex-shrink:0;width:26px;padding-top:1px;
+}
+.rule .rt{font-size:15.5px;color:var(--ink-soft)}
+.rule .rt strong{color:var(--ink);font-weight:500}
+
+/* ---------- weeks + days ---------- */
+.week{margin-top:46px}
+.week:first-of-type{margin-top:30px}
+.whead{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding-bottom:12px;margin-bottom:4px;border-bottom:2px solid var(--teal);
+}
+.wnum{
+  font-family:'Permanent Marker',cursive;font-size:13px;
+  color:var(--pink);letter-spacing:.4px;
+}
+.wtitle{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:24px;color:var(--ink);
+}
+.wnote{font-size:13.5px;color:var(--ink-faint);font-style:italic;margin-left:auto}
+
+.day{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px 0;border-bottom:1px solid var(--line);
+}
+.day:last-child{border-bottom:none}
+.dnum{
+  font-family:'Permanent Marker',cursive;
+  font-size:23px;color:var(--teal);
+  flex-shrink:0;width:42px;text-align:right;
+  font-variant-numeric:tabular-nums;padding-top:2px;
+}
+.dbody{flex:1;min-width:0}
+.dtest{font-size:16.5px;font-weight:500;color:var(--ink);margin-bottom:9px;line-height:1.45}
+.hook{
+  background:var(--surface-2);border-left:3px solid var(--pink);
+  border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:10px;
+}
+.hook .hlabel{
+  font-size:10px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--pink);font-weight:600;display:block;margin-bottom:5px;
+}
+.hook .htext{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-size:16.5px;color:var(--ink);line-height:1.5;
+}
+.chip{
+  display:inline-block;font-family:'Permanent Marker',cursive;
+  font-size:11px;letter-spacing:.6px;
+  padding:3px 11px;border-radius:50px;
+  background:var(--surface-2);color:var(--cc,var(--teal));
+  border:1px solid var(--line);
+}
+.c-sceptic{--cc:var(--teal)}
+.c-verdict{--cc:var(--berry)}
+.c-retest{--cc:var(--amber)}
+.c-woo{--cc:var(--pink)}
+.dnote{font-size:13.5px;color:var(--ink-faint);margin-top:8px;font-style:italic}
+
+/* ---------- callout ---------- */
+.callout{
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:0 12px 12px 0;padding:24px 26px;margin-top:28px;box-shadow:var(--shadow);
+}
+.callout h3{
+  font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:20px;margin:0 0 10px;color:var(--ink);
+}
+.callout p{margin:0 0 10px;color:var(--ink-soft);font-size:15.5px}
+.callout p:last-child{margin-bottom:0}
+.callout strong{color:var(--ink);font-weight:500}
+
+/* ---------- closing ---------- */
+.close{padding:52px 0 74px;border-bottom:none}
+.sign{
+  font-family:'Playfair Display',Georgia,serif;font-style:italic;
+  font-size:19px;color:var(--teal-deep);margin-top:22px;
+}
+a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,.day:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:4px}
+
+@media (max-width:560px){
+  .mast{padding:44px 0 32px}
+  .dnum{width:34px;font-size:20px}
+  .day{gap:13px}
+  .wnote{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Real numbers. No hype. Your call.</div>
+    <h1>Should You Build a Skool?</h1>
+    <p class="standfirst">Everything below is what communities actually charge, how many members they actually have, and what the work actually is week to week. <em>Read the workload section before you look at the money.</em></p>
+    <div class="meta">
+      <span>Built for <b>Tash Cornack</b></span>
+      <span>Researched <b>18 August 2026</b></span>
+      <span>Decision <b>yours, not urgent</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>What it costs you to open the doors</h2>
+    <div class="rules">
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Basic plan: $9 a month, plus a 10% transaction fee</strong> on what you collect. Cheap to start, and the fee scales with you.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Standard plan: $99 a month.</strong> Worth it only once the transaction fees on the basic plan cost more than the difference.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt">Start on the $9 plan. There is no reason to pay $99 until members are paying you.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The workload, first</h2>
+    <p class="lede">This is the part nobody puts in the sales pitch, and it's the part that decides whether this is right for you this year.</p>
+
+    <div class="callout">
+      <h3>5 to 10 hours a week, minimum</h3>
+      <p>Even at the low end that's <strong>45 to 60 minutes a day, seven days a week</strong>, just on basic operations - posting, replying to members, moderating. That's before you make any courses.</p>
+      <p>And that's for <em>one</em> community, run without automation.</p>
+    </div>
+
+    <div class="week">
+      <div class="whead">
+        <span class="wnum">The rhythm</span>
+        <span class="wtitle">What a working week looks like</span>
+        <span class="wnote">Every week. Ongoing.</span>
+      </div>
+
+      <div class="day"><div class="dnum">M</div><div class="dbody">
+        <div class="dtest">Weekly goal-setting thread posted</div>
+      </div></div>
+      <div class="day"><div class="dnum">W</div><div class="dbody">
+        <div class="dtest">Value content published</div>
+      </div></div>
+      <div class="day"><div class="dnum">T</div><div class="dbody">
+        <div class="dtest">Live Q&amp;A call - 60 minutes, on camera</div>
+        <div class="hook"><span class="hlabel">The non-negotiable</span><span class="htext">Live calls are the single strongest thing keeping people subscribed. Async posts alone don't hold a community together. Even one call a month measurably reduces people leaving.</span></div>
+      </div></div>
+      <div class="day"><div class="dnum">F</div><div class="dbody">
+        <div class="dtest">Wins thread, so people have a reason to come back</div>
+      </div></div>
+      <div class="day"><div class="dnum">+</div><div class="dbody">
+        <div class="dtest">Replying to members, every day, all week</div>
+        <div class="dnote">A community where the owner doesn't reply dies quietly and quickly.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What they charge, and how many members</h2>
+    <p class="lede">Median price across paid communities is <strong>$27 a month</strong>. Most that work land between $29 and $99. Cheaper groups play a volume game.</p>
+
+    <div class="week">
+      <div class="whead">
+        <span class="wnum">Tier 1</span>
+        <span class="wtitle">The $5K a month plateau</span>
+        <span class="wnote">Where most land, and stop</span>
+      </div>
+      <div class="day"><div class="dnum">01</div><div class="dbody">
+        <div class="dtest">120 to 260 paying members at $19 to $39 a month</div>
+        <div class="hook"><span class="hlabel">The catch</span><span class="htext">This is the ceiling for communities that are just content behind a paywall. About 7 in 10 members are still there after 90 days, and 6 to 9% leave every single month, so you're always refilling the bucket.</span></div>
+      </div></div>
+
+      <div class="week"></div>
+
+      <div class="day"><div class="dnum">02</div><div class="dbody">
+        <div class="dtest">180 to 320 members at $29 to $59 a month - about $10K a month</div>
+        <div class="hook"><span class="hlabel">What changes</span><span class="htext">These run 3 to 4 paid group programs a year on top of the subscription. That's what breaks the $5K ceiling - adding cohorts roughly doubles the annual total.</span></div>
+      </div></div>
+
+      <div class="day"><div class="dnum">03</div><div class="dbody">
+        <div class="dtest">The top 10% - above $25,000 a month</div>
+        <div class="hook"><span class="hlabel">What it takes</span><span class="htext">180 to 420 members paying $149 to $399 a month, with multiple income streams stacked on top. Premium price, small numbers, deep delivery.</span></div>
+        <div class="dnote">Median community sits at $2,800 to $4,200 a month. The gap between median and top 10% is not the price - it's what gets delivered.</div>
+      </div></div>
+    </div>
+
+    <div class="callout">
+      <h3>The one number that decides it</h3>
+      <p>The difference between a community that stalls at $5K and one that doesn't isn't the price. <strong>It's whether you run paid group programs on top of the subscription.</strong> Content behind a paywall plateaus. Content plus live cohorts roughly doubles the annual figure.</p>
+      <p>Which means more delivery, not less.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What this means for you, honestly</h2>
+    <div class="rules">
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>The maths needs an audience you don't have yet.</strong> The lowest realistic tier is 120 paying members. To get 120 people to pay monthly you generally need thousands who know and trust you first. That's what the 30 days is for.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>The weekly live call is forever.</strong> Not for a launch, not for a season. Every week, or people leave. Ask yourself honestly whether you want that commitment while moving house and starting a new job.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Nothing is lost by waiting.</strong> The people you'd put in a community are the people the 30 days will bring you. The audience has to exist before the community can.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>The $19 guide does a similar job for now</strong> - it earns from the same people, and it doesn't ask for an hour of you every week forever.</span></div>
+    </div>
+    <p class="sign">This isn't a no. It's a not-yet with a number attached: build the audience first, then this becomes an easy decision instead of a hard one.</p>
+  </section>
+
+</div>
+</body>
+</html>
