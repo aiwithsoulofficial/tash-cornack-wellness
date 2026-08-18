@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Leads | Tash Cornack</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#2d8a7e;--teal-deep:#1a5c54;--pink:#e84393;--charcoal:#1a1a1a;--berry:#7b2d5f;--sand:#f5f0eb;--warm:#faf8f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--warm);color:var(--charcoal);line-height:1.6;font-weight:400}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header{background:var(--teal-deep);color:#fff;padding:26px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-family:'Playfair Display',serif;font-size:22px;font-weight:600}
+header .who{font-size:12px;color:rgba(255,255,255,.65)}
+.out{background:rgba(255,255,255,.14);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit}
+.out:hover{background:rgba(255,255,255,.24)}
+
+/* login */
+#login{max-width:430px;margin:70px auto;background:#fff;border-radius:12px;padding:38px 32px;box-shadow:0 3px 22px rgba(0,0,0,.07)}
+#login h2{font-family:'Playfair Display',serif;font-size:25px;margin-bottom:10px}
+#login p{font-size:14.5px;color:#666;margin-bottom:22px}
+#login input{width:100%;padding:14px 16px;border:2px solid #e3ded8;border-radius:8px;font-size:15px;font-family:inherit;outline:none;margin-bottom:14px}
+#login input:focus{border-color:var(--teal)}
+#login button{width:100%;padding:14px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit}
+#login button:hover{background:var(--teal-deep)}
+#login button:disabled{opacity:.55;cursor:wait}
+.msg{font-size:13.5px;margin-top:14px;min-height:18px;color:var(--berry)}
+.msg.ok{color:var(--teal-deep)}
+
+/* board */
+#board{display:none;padding:26px 0 70px}
+.bar{display:flex;gap:8px;overflow-x:auto;padding-bottom:14px;margin-bottom:20px}
+.tab{flex-shrink:0;padding:9px 16px;border-radius:50px;border:1.5px solid #ddd6ce;background:#fff;font-size:13px;cursor:pointer;font-family:inherit;color:#555;white-space:nowrap}
+.tab.on{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:500}
+.tab .n{opacity:.7;margin-left:5px}
+.empty{text-align:center;padding:60px 20px;color:#8a8a8a;font-size:15px}
+.card{background:#fff;border-radius:11px;padding:20px 20px 16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.05);border-left:4px solid var(--teal)}
+.card.fin{border-left-color:var(--pink)}
+.card .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap}
+.card h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:600}
+.when{font-size:11.5px;color:#999;white-space:nowrap}
+.meta{font-size:13.5px;color:#555;margin-bottom:4px;word-break:break-word}
+.meta a{color:var(--teal-deep);text-decoration:none}
+.meta a:hover{text-decoration:underline}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 2px}
+.tag{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:50px;background:var(--sand);color:#5c5248}
+.tag.pink{background:#fde8f2;color:var(--berry);font-weight:500}
+.tag.teal{background:#e2f0ed;color:var(--teal-deep)}
+.note{background:var(--warm);border-radius:7px;padding:11px 13px;font-size:13.5px;color:#444;margin-top:11px;font-style:italic}
+.next{font-size:12.5px;color:#7a6f63;margin-top:10px;padding-top:10px;border-top:1px dashed #e5ded6}
+.acts{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;padding-top:13px;border-top:1px solid #f0ebe4}
+.act{padding:8px 13px;border-radius:6px;border:1.5px solid var(--teal);background:#fff;color:var(--teal-deep);font-size:12.5px;cursor:pointer;font-family:inherit}
+.act:hover{background:var(--teal);color:#fff}
+.act.grey{border-color:#ccc;color:#777}
+.act.grey:hover{background:#777;border-color:#777}
+.act:disabled{opacity:.5;cursor:wait}
+.hist{font-size:12px;color:#999;margin-top:9px}
+footer{text-align:center;padding:26px 0;font-size:12px;color:#999}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <h2>Your leads</h2>
+  <p>Pop your email in and I'll send you a link that logs you straight in. No password to remember.</p>
+  <input type="email" id="email" placeholder="Your email address" autocomplete="email">
+  <button id="sendLink">Email me a login link</button>
+  <div class="msg" id="loginMsg"></div>
+</div>
+
+<div id="board">
+  <header>
+    <div class="wrap">
+      <div>
+        <h1>Your leads</h1>
+        <div class="who" id="who"></div>
+      </div>
+      <button class="out" id="signOut">Sign out</button>
+    </div>
+  </header>
+  <div class="wrap">
+    <div class="bar" id="tabs"></div>
+    <div id="list"></div>
+  </div>
+  <footer>Leads come in from tashcornack.com. Nobody else can see this page.</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var sb = supabase.createClient(
+    'https://jiquevvzrdavgqonvvug.supabase.co',
+    'sb_publishable_siNrWACQh9utYNJ_g6Mt3Q_vWuxhkaJ'
+  );
+
+  var STAGES = [
+    {k:'new',           label:'New'},
+    {k:'contacted',     label:'I have contacted'},
+    {k:'booked_denise', label:'Booked with Denise'},
+    {k:'call_done',     label:'Call done'},
+    {k:'customer',      label:'Customer'},
+    {k:'not_now',       label:'Not right now'}
+  ];
+  var NEXT = {
+    new:           {to:'contacted',     label:'I have contacted them'},
+    contacted:     {to:'booked_denise', label:'Booked in with Denise'},
+    booked_denise: {to:'call_done',     label:'Call happened'},
+    call_done:     {to:'customer',      label:'They went ahead'}
+  };
+
+  var el = function(id){ return document.getElementById(id); };
+  var current = 'new';
+  var leads = [];
+
+  function esc(t){
+    return String(t == null ? '' : t).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function ago(iso){
+    var d = new Date(iso), now = new Date();
+    var days = Math.floor((now - d) / 86400000);
+    if (days === 0) return 'today';
+    if (days === 1) return 'yesterday';
+    if (days < 14) return days + ' days ago';
+    return d.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
+  }
+
+  // ---------- auth ----------
+  el('sendLink').addEventListener('click', async function(){
+    var email = el('email').value.trim();
+    var msg = el('loginMsg'), btn = el('sendLink');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.className='msg'; msg.textContent='That email does not look right.'; return; }
+    btn.disabled = true; msg.className='msg'; msg.textContent='Sending...';
+    var res = await sb.auth.signInWithOtp({
+      email: email,
+      options: { emailRedirectTo: window.location.origin + '/pipeline/' }
+    });
+    btn.disabled = false;
+    if (res.error) { msg.className='msg'; msg.textContent = 'Could not send it: ' + res.error.message; return; }
+    msg.className='msg ok';
+    msg.textContent = 'Sent. Check your email and tap the link. It can take a minute, and check your junk folder.';
+  });
+
+  el('email').addEventListener('keydown', function(e){ if (e.key === 'Enter') el('sendLink').click(); });
+
+  el('signOut').addEventListener('click', async function(){
+    await sb.auth.signOut();
+    window.location.reload();
+  });
+
+  // ---------- data ----------
+  async function load(){
+    var res = await sb.from('tash_leads').select('*').order('created_at',{ascending:false});
+    if (res.error) {
+      el('list').innerHTML = '<div class="empty">Could not load your leads: ' + esc(res.error.message) + '</div>';
+      return;
+    }
+    leads = res.data || [];
+    render();
+  }
+
+  function render(){
+    var counts = {};
+    STAGES.forEach(function(s){ counts[s.k] = 0; });
+    leads.forEach(function(l){ if (counts[l.stage] !== undefined) counts[l.stage]++; });
+
+    el('tabs').innerHTML = STAGES.map(function(s){
+      return '<button class="tab' + (s.k===current?' on':'') + '" data-stage="' + s.k + '">' +
+             esc(s.label) + '<span class="n">' + counts[s.k] + '</span></button>';
+    }).join('');
+
+    Array.prototype.forEach.call(document.querySelectorAll('.tab'), function(t){
+      t.addEventListener('click', function(){ current = t.dataset.stage; render(); });
+    });
+
+    var rows = leads.filter(function(l){ return l.stage === current; });
+    if (!rows.length) {
+      el('list').innerHTML = '<div class="empty">Nothing sitting here right now.</div>';
+      return;
+    }
+
+    el('list').innerHTML = rows.map(function(l){
+      var tags = [];
+      if (l.finance_interest) tags.push('<span class="tag pink">Wants a payment plan</span>');
+      if (l.lead_type && l.lead_type !== 'unknown') tags.push('<span class="tag teal">' + esc(l.lead_type) + '</span>');
+      if (l.guide_sent) tags.push('<span class="tag">Got the checklist</span>');
+      if (l.source) tags.push('<span class="tag">' + esc(String(l.source).replace('tashcornack.com/','')) + '</span>');
+
+      var noteArr = Array.isArray(l.notes) ? l.notes : [];
+      var lastNote = noteArr.length ? noteArr[noteArr.length-1] : null;
+
+      var adv = NEXT[l.stage];
+      var acts = '';
+      if (adv) acts += '<button class="act" data-id="' + l.id + '" data-to="' + adv.to + '">' + esc(adv.label) + '</button>';
+      acts += '<button class="act" data-note="' + l.id + '">Add a note</button>';
+      if (l.stage !== 'not_now' && l.stage !== 'customer')
+        acts += '<button class="act grey" data-id="' + l.id + '" data-to="not_now">Not right now</button>';
+
+      return '<div class="card' + (l.finance_interest?' fin':'') + '">' +
+        '<div class="top"><h3>' + esc(l.name || 'No name given') + '</h3><div class="when">' + ago(l.created_at) + '</div></div>' +
+        '<div class="meta"><a href="mailto:' + esc(l.email) + '">' + esc(l.email) + '</a></div>' +
+        (l.phone ? '<div class="meta"><a href="tel:' + esc(l.phone) + '">' + esc(l.phone) + '</a></div>' : '') +
+        (l.practice_name ? '<div class="meta">' + esc(l.practice_name) + '</div>' : '') +
+        (l.role ? '<div class="meta">' + esc(l.role) + '</div>' : '') +
+        (tags.length ? '<div class="tags">' + tags.join('') + '</div>' : '') +
+        (l.message ? '<div class="note">' + esc(l.message) + '</div>' : '') +
+        (lastNote ? '<div class="hist">Last note: ' + esc(lastNote.text) + '</div>' : '') +
+        (l.next_action ? '<div class="next">' + esc(l.next_action) + '</div>' : '') +
+        '<div class="acts">' + acts + '</div>' +
+      '</div>';
+    }).join('');
+
+    Array.prototype.forEach.call(document.querySelectorAll('.act[data-to]'), function(b){
+      b.addEventListener('click', function(){ move(b, b.dataset.id, b.dataset.to); });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.act[data-note]'), function(b){
+      b.addEventListener('click', function(){ addNote(b.dataset.note); });
+    });
+  }
+
+  async function move(btn, id, to){
+    btn.disabled = true;
+    var patch = { stage: to };
+    if (to === 'booked_denise') patch.denise_booked_at = new Date().toISOString();
+    var res = await sb.from('tash_leads').update(patch).eq('id', id);
+    if (res.error) { alert('Could not save that: ' + res.error.message); btn.disabled = false; return; }
+    await load();
+  }
+
+  async function addNote(id){
+    var text = prompt('What do you want to remember about this one?');
+    if (!text) return;
+    var lead = leads.filter(function(l){ return l.id === id; })[0];
+    var noteArr = (lead && Array.isArray(lead.notes)) ? lead.notes.slice() : [];
+    noteArr.push({ text: text, at: new Date().toISOString() });
+    var res = await sb.from('tash_leads').update({ notes: noteArr }).eq('id', id);
+    if (res.error) { alert('Could not save that: ' + res.error.message); return; }
+    await load();
+  }
+
+  // ---------- boot ----------
+  async function boot(){
+    var s = await sb.auth.getSession();
+    var session = s.data.session;
+    if (session) {
+      el('login').style.display = 'none';
+      el('board').style.display = 'block';
+      el('who').textContent = 'Signed in as ' + session.user.email;
+      await load();
+    } else {
+      el('login').style.display = 'block';
+      el('board').style.display = 'none';
+    }
+  }
+
+  sb.auth.onAuthStateChange(function(){ boot(); });
+  boot();
+})();
+</script>
+</body>
+</html>

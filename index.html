@@ -112,6 +112,38 @@ h2{font-family:'Permanent Marker',cursive;font-size:clamp(32px,5vw,52px);margin-
 .lead-magnet button{padding:16px 36px;background:var(--pink);color:#fff;border:none;border-radius:50px;font-family:'Permanent Marker',cursive;font-size:16px;cursor:pointer;transition:all .3s;white-space:nowrap}
 .lead-magnet button:hover{background:#fff;color:var(--pink)}
 .lead-magnet .disclaimer{font-size:11px;color:rgba(255,255,255,0.3);margin-top:16px}
+.lead-magnet .form-row{margin-bottom:12px}
+.lead-magnet .form-row.single{max-width:500px}
+.lead-magnet select{flex:1;padding:16px 20px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);border-radius:50px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border .3s;-webkit-appearance:none;appearance:none;cursor:pointer}
+.lead-magnet select:focus{border-color:var(--pink)}
+.lead-magnet select option{background:#0d2b27;color:#fff}
+.lead-magnet button:disabled{opacity:.55;cursor:wait}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none}
+.lm-status{font-size:13px;margin-top:14px;min-height:18px;color:#ffd9ec}
+.lm-done{display:none;max-width:520px;margin:0 auto;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:34px 28px}
+.lm-done h3{font-family:'Playfair Display',serif;color:#fff;font-size:24px;margin-bottom:12px}
+.lm-done p{color:rgba(255,255,255,0.72);font-size:15px;line-height:1.7;margin-bottom:22px}
+.lm-open{display:inline-block;padding:15px 38px;background:var(--pink);color:#fff;border-radius:50px;font-family:'Permanent Marker',cursive;font-size:16px;text-decoration:none;transition:all .3s}
+.lm-open:hover{background:#fff;color:var(--pink)}
+
+/* ENQUIRY FORM */
+.enq-form{max-width:540px;margin:28px auto 0;text-align:left}
+.enq-row{display:flex;gap:12px;margin-bottom:12px}
+@media(max-width:600px){.enq-row{flex-direction:column}}
+.enq-form input[type=text],.enq-form input[type=email],.enq-form input[type=tel],.enq-form textarea{flex:1;width:100%;padding:15px 20px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#fff;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border .3s}
+.enq-form textarea{border-radius:12px;resize:vertical;margin-bottom:14px}
+.enq-form input::placeholder,.enq-form textarea::placeholder{color:rgba(255,255,255,0.35)}
+.enq-form input:focus,.enq-form textarea:focus{border-color:var(--pink)}
+.enq-check{display:flex;gap:11px;align-items:flex-start;margin-bottom:20px;cursor:pointer}
+.enq-check input{margin-top:3px;width:17px;height:17px;accent-color:var(--pink);flex-shrink:0}
+.enq-check span{font-size:13.5px;color:rgba(255,255,255,0.72);line-height:1.6}
+.enq-form .cta-btn{display:inline-block;padding:16px 44px;background:var(--teal);color:#fff;font-family:'Permanent Marker',cursive;font-size:18px;border:2px solid var(--teal);border-radius:50px;cursor:pointer;transition:all .3s}
+.enq-form .cta-btn:hover{background:transparent;border-color:var(--pink);color:var(--pink)}
+.enq-form .cta-btn:disabled{opacity:.55;cursor:wait}
+.enq-status{font-size:13px;margin-top:14px;min-height:18px;color:#ffd9ec}
+.enq-done{display:none;max-width:520px;margin:28px auto 0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 26px}
+.enq-done h3{font-family:'Playfair Display',serif;color:#fff;font-size:24px;margin-bottom:12px}
+.enq-done p{color:rgba(255,255,255,0.72);font-size:15px;line-height:1.7}
 
 /* CTA */
 .cta-section{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
@@ -301,11 +333,30 @@ footer{padding:60px 40px;text-align:center;border-top:1px solid rgba(255,255,255
     <div class="section-label">Free Download</div>
     <h2>The Practice Water Quality Checklist</h2>
     <div class="sub">5 things every health practice should know about the water their patients are drinking - plus a simple audit you can do today. No jargon, no sales pitch, just practical info.</div>
-    <div class="form-row">
-      <input type="email" placeholder="Your email address">
-      <button>Send It To Me</button>
+    <form class="lm-form" id="guideForm" novalidate>
+      <input type="text" id="lmHp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-row">
+        <input type="text" id="lmName" name="name" placeholder="Your first name" autocomplete="given-name" required>
+        <input type="email" id="lmEmail" name="email" placeholder="Your email address" autocomplete="email" required>
+      </div>
+      <div class="form-row single">
+        <select id="lmRole" name="role" aria-label="What best describes you">
+          <option value="">What best describes you? (optional)</option>
+          <option value="practitioner">Health or allied health practitioner</option>
+          <option value="practice-staff">Practice owner, manager or reception</option>
+          <option value="family">Parent or family member</option>
+          <option value="other">Something else</option>
+        </select>
+        <button type="submit" id="lmBtn">Send It To Me</button>
+      </div>
+      <div class="lm-status" id="lmStatus" role="status" aria-live="polite"></div>
+    </form>
+    <div class="lm-done" id="lmDone">
+      <h3>It's yours. Open it here.</h3>
+      <p>I've saved your details so I can send you anything else worth reading. No spam, and you can tell me to stop any time.</p>
+      <a href="/checklist/" class="lm-open">Open the checklist</a>
     </div>
-    <div class="disclaimer">No spam, ever. Just the guide and an invite to the free webinar.</div>
+    <div class="disclaimer">No spam, ever. Just the guide and the occasional thing I think is worth your time.</div>
   </div>
 </section>
 
@@ -317,7 +368,28 @@ footer{padding:60px 40px;text-align:center;border-top:1px solid rgba(255,255,255
     <div class="section-label">Let's Connect</div>
     <h2>Curious? Let's Chat.</h2>
     <p>Whether you want the free guide, a water test for your practice, or just a conversation about what's possible - I'd love to hear from you.</p>
-    <a href="mailto:tash.cornack@gmail.com" class="cta-btn">Get In Touch</a>
+    <form class="enq-form" id="enqForm" novalidate>
+      <input type="text" id="enqHp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="enq-row">
+        <input type="text" id="enqName" placeholder="Your name" autocomplete="name" required>
+        <input type="email" id="enqEmail" placeholder="Email address" autocomplete="email" required>
+      </div>
+      <div class="enq-row">
+        <input type="tel" id="enqPhone" placeholder="Phone (optional)" autocomplete="tel">
+        <input type="text" id="enqPractice" placeholder="Practice or business (optional)">
+      </div>
+      <textarea id="enqMessage" rows="3" placeholder="What would you like to talk about?"></textarea>
+      <label class="enq-check">
+        <input type="checkbox" id="enqFinance">
+        <span>I'd like to know about payment plan options rather than paying upfront</span>
+      </label>
+      <button type="submit" id="enqBtn" class="cta-btn">Send It Through</button>
+      <div class="enq-status" id="enqStatus" role="status" aria-live="polite"></div>
+    </form>
+    <div class="enq-done" id="enqDone">
+      <h3>Got it, thank you.</h3>
+      <p>I'll come back to you personally, usually within a day or two. If it's urgent, email me directly at tash.cornack@gmail.com.</p>
+    </div>
   </div>
 </section>
 
@@ -345,5 +417,95 @@ const observer=new IntersectionObserver((entries)=>{
 document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 </script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var sb = supabase.createClient(
+    'https://jiquevvzrdavgqonvvug.supabase.co',
+    'sb_publishable_siNrWACQh9utYNJ_g6Mt3Q_vWuxhkaJ'
+  );
+
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function el(id){ return document.getElementById(id); }
+
+  // ---------- Free checklist opt-in ----------
+  var gForm = el('guideForm');
+  if (gForm) {
+    gForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var status = el('lmStatus'), btn = el('lmBtn');
+      var name = el('lmName').value.trim();
+      var email = el('lmEmail').value.trim();
+      var role = el('lmRole').value;
+
+      if (el('lmHp').value) { return; }                 // bot
+      if (!name) { status.textContent = 'Just your first name and I will send it over.'; return; }
+      if (!EMAIL.test(email)) { status.textContent = 'That email address does not look quite right.'; return; }
+
+      btn.disabled = true; status.textContent = 'Sending it now...';
+      try {
+        var payload = {
+          name: name, email: email, role: role || null,
+          lead_type: role === 'practitioner' ? 'practitioner'
+                   : role === 'practice-staff' ? 'practitioner'
+                   : role === 'family' ? 'family'
+                   : role ? 'other' : 'unknown',
+          source: 'tashcornack.com/checklist-optin',
+          guide_sent: true,
+          stage: 'new',
+          next_action: 'Tash: first contact, then hand to Denise for discovery call'
+        };
+        var res = await sb.from('tash_leads').insert(payload);
+        if (res.error) throw res.error;
+        gForm.style.display = 'none';
+        el('lmDone').style.display = 'block';
+        el('lmDone').scrollIntoView({behavior:'smooth', block:'center'});
+      } catch (err) {
+        status.textContent = 'Something went wrong my end. Email me at tash.cornack@gmail.com and I will send it straight over.';
+        btn.disabled = false;
+      }
+    });
+  }
+
+  // ---------- Enquiry ----------
+  var eForm = el('enqForm');
+  if (eForm) {
+    eForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var status = el('enqStatus'), btn = el('enqBtn');
+      var name = el('enqName').value.trim();
+      var email = el('enqEmail').value.trim();
+
+      if (el('enqHp').value) { return; }                // bot
+      if (!name) { status.textContent = 'Your name first, so I know who I am talking to.'; return; }
+      if (!EMAIL.test(email)) { status.textContent = 'That email address does not look quite right.'; return; }
+
+      btn.disabled = true; status.textContent = 'Sending...';
+      try {
+        var payload = {
+          name: name, email: email,
+          phone: el('enqPhone').value.trim() || null,
+          practice_name: el('enqPractice').value.trim() || null,
+          message: el('enqMessage').value.trim() || null,
+          finance_interest: el('enqFinance').checked,
+          lead_type: 'unknown',
+          source: 'tashcornack.com/enquiry',
+          stage: 'new',
+          next_action: 'Tash: reply personally, qualify, then hand to Denise for discovery call'
+        };
+        var res = await sb.from('tash_leads').insert(payload);
+        if (res.error) throw res.error;
+        eForm.style.display = 'none';
+        el('enqDone').style.display = 'block';
+        el('enqDone').scrollIntoView({behavior:'smooth', block:'center'});
+      } catch (err) {
+        status.textContent = 'Something went wrong my end. Email me directly at tash.cornack@gmail.com.';
+        btn.disabled = false;
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
