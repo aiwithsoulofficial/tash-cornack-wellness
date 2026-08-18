@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="A 30 day content challenge: one video a day testing the water system from a sceptic's angle.">
+<meta name="theme-color" content="#1a5c54">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+<title>The Sceptic's 30 Days</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#faf8f5;
+  --surface:#ffffff;
+  --surface-2:#f3eee7;
+  --ink:#16211f;
+  --ink-soft:#55625f;
+  --ink-faint:#8a938f;
+  --line:rgba(26,92,84,.16);
+  --teal:#2d8a7e;
+  --teal-deep:#1a5c54;
+  --pink:#d4357f;
+  --berry:#7b2d5f;
+  --amber:#b4761f;
+  --shadow:0 1px 2px rgba(20,50,45,.05),0 8px 24px rgba(20,50,45,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0e1614;
+    --surface:#15201e;
+    --surface-2:#1b2725;
+    --ink:#eaf0ee;
+    --ink-soft:#a3b2ae;
+    --ink-faint:#75837f;
+    --line:rgba(140,215,200,.16);
+    --teal:#54b6a6;
+    --teal-deep:#7fd0c0;
+    --pink:#ff74b0;
+    --berry:#d98cba;
+    --amber:#e0a44a;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0e1614;
+  --surface:#15201e;
+  --surface-2:#1b2725;
+  --ink:#eaf0ee;
+  --ink-soft:#a3b2ae;
+  --ink-faint:#75837f;
+  --line:rgba(140,215,200,.16);
+  --teal:#54b6a6;
+  --teal-deep:#7fd0c0;
+  --pink:#ff74b0;
+  --berry:#d98cba;
+  --amber:#e0a44a;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+
+/* ---------- masthead ---------- */
+.mast{padding:66px 0 44px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:'Permanent Marker',cursive;
+  font-size:15px;letter-spacing:.5px;color:var(--pink);
+  margin:0 0 14px;
+}
+h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;
+  font-size:clamp(38px,7.5vw,62px);
+  line-height:1.05;
+  margin:0 0 20px;
+  text-wrap:balance;
+  letter-spacing:-.015em;
+}
+.standfirst{
+  font-size:18px;color:var(--ink-soft);max-width:62ch;margin:0 0 26px;
+}
+.standfirst em{color:var(--ink);font-style:italic}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:13px;color:var(--ink-faint);
+  padding-top:20px;border-top:1px solid var(--line);
+}
+.meta b{color:var(--teal-deep);font-weight:500}
+
+/* ---------- generic section ---------- */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+h2{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:clamp(25px,4vw,33px);
+  margin:0 0 8px;line-height:1.2;text-wrap:balance;
+}
+.lede{color:var(--ink-soft);font-size:16.5px;margin:0 0 30px;max-width:62ch}
+p{max-width:64ch}
+
+/* ---------- the four pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px;margin-top:26px}
+.pillar{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:22px 20px;box-shadow:var(--shadow);
+  border-top:3px solid var(--pc,var(--teal));
+}
+.pillar .pname{
+  font-family:'Permanent Marker',cursive;
+  font-size:16px;color:var(--pc,var(--teal));margin-bottom:9px;letter-spacing:.3px;
+}
+.pillar p{font-size:14.5px;color:var(--ink-soft);margin:0;line-height:1.6}
+.p-sceptic{--pc:var(--teal)}
+.p-verdict{--pc:var(--berry)}
+.p-retest{--pc:var(--amber)}
+.p-woo{--pc:var(--pink)}
+
+/* ---------- rules ---------- */
+.rules{display:flex;flex-direction:column;gap:2px;margin-top:24px}
+.rule{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px dashed var(--line);
+}
+.rule:last-child{border-bottom:none}
+.rule .rk{
+  font-family:'Permanent Marker',cursive;font-size:14px;color:var(--pink);
+  flex-shrink:0;width:26px;padding-top:1px;
+}
+.rule .rt{font-size:15.5px;color:var(--ink-soft)}
+.rule .rt strong{color:var(--ink);font-weight:500}
+
+/* ---------- weeks + days ---------- */
+.week{margin-top:46px}
+.week:first-of-type{margin-top:30px}
+.whead{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding-bottom:12px;margin-bottom:4px;border-bottom:2px solid var(--teal);
+}
+.wnum{
+  font-family:'Permanent Marker',cursive;font-size:13px;
+  color:var(--pink);letter-spacing:.4px;
+}
+.wtitle{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:24px;color:var(--ink);
+}
+.wnote{font-size:13.5px;color:var(--ink-faint);font-style:italic;margin-left:auto}
+
+.day{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px 0;border-bottom:1px solid var(--line);
+}
+.day:last-child{border-bottom:none}
+.dnum{
+  font-family:'Permanent Marker',cursive;
+  font-size:23px;color:var(--teal);
+  flex-shrink:0;width:42px;text-align:right;
+  font-variant-numeric:tabular-nums;padding-top:2px;
+}
+.dbody{flex:1;min-width:0}
+.dtest{font-size:16.5px;font-weight:500;color:var(--ink);margin-bottom:9px;line-height:1.45}
+.hook{
+  background:var(--surface-2);border-left:3px solid var(--pink);
+  border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:10px;
+}
+.hook .hlabel{
+  font-size:10px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--pink);font-weight:600;display:block;margin-bottom:5px;
+}
+.hook .htext{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-size:16.5px;color:var(--ink);line-height:1.5;
+}
+.chip{
+  display:inline-block;font-family:'Permanent Marker',cursive;
+  font-size:11px;letter-spacing:.6px;
+  padding:3px 11px;border-radius:50px;
+  background:var(--surface-2);color:var(--cc,var(--teal));
+  border:1px solid var(--line);
+}
+.c-sceptic{--cc:var(--teal)}
+.c-verdict{--cc:var(--berry)}
+.c-retest{--cc:var(--amber)}
+.c-woo{--cc:var(--pink)}
+.dnote{font-size:13.5px;color:var(--ink-faint);margin-top:8px;font-style:italic}
+
+/* ---------- callout ---------- */
+.callout{
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:0 12px 12px 0;padding:24px 26px;margin-top:28px;box-shadow:var(--shadow);
+}
+.callout h3{
+  font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:20px;margin:0 0 10px;color:var(--ink);
+}
+.callout p{margin:0 0 10px;color:var(--ink-soft);font-size:15.5px}
+.callout p:last-child{margin-bottom:0}
+.callout strong{color:var(--ink);font-weight:500}
+
+/* ---------- closing ---------- */
+.close{padding:52px 0 74px;border-bottom:none}
+.sign{
+  font-family:'Playfair Display',Georgia,serif;font-style:italic;
+  font-size:19px;color:var(--teal-deep);margin-top:22px;
+}
+a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,.day:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:4px}
+
+@media (max-width:560px){
+  .mast{padding:44px 0 32px}
+  .dnum{width:34px;font-size:20px}
+  .day{gap:13px}
+  .wnote{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">30 days. 68 claims. One sceptic.</div>
+    <h1>The Sceptic's 30 Days</h1>
+    <p class="standfirst">One video a day. You test one use of the water, you say honestly whether it worked, and you post it either way. You are not the salesperson here. <em>You are the person who does not believe it yet.</em></p>
+    <div class="meta">
+      <span>Built for <b>Tash Cornack</b></span>
+      <span>Start the week of <b>25 August 2026</b></span>
+      <span>Review <b>Tuesday 25 Aug, 2pm</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why this works</h2>
+    <p class="lede">Four reasons, and they are the whole strategy.</p>
+    <div class="rules">
+      <div class="rule"><span class="rk">1</span><span class="rt"><strong>It needs no expertise.</strong> You are testing, not teaching. You never have to be the authority.</span></div>
+      <div class="rule"><span class="rk">2</span><span class="rt"><strong>It needs no permission.</strong> You are documenting your own house. Nobody has to approve it.</span></div>
+      <div class="rule"><span class="rk">3</span><span class="rt"><strong>It cannot be faked.</strong> People can see a real kitchen and a real result. That builds trust faster than any claim.</span></div>
+      <div class="rule"><span class="rk">4</span><span class="rt"><strong>The failures are the point.</strong> When something doesn't work and you say so, you become the only person in this space anyone believes.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Your four pillars</h2>
+    <p class="lede">Every video is one of these four. Each day below is already tagged, so you never have to decide what kind of video you're making.</p>
+    <div class="pillars">
+      <div class="pillar p-sceptic">
+        <div class="pname">The Sceptic</div>
+        <p>The test itself. You open doubting it. <em>"I bet this doesn't work."</em> Then you do it on camera, one take, and see.</p>
+      </div>
+      <div class="pillar p-verdict">
+        <div class="pname">The Verdict</div>
+        <p>The honest call. True or false. Worked or didn't. No hedging, no softening the ones that flopped.</p>
+      </div>
+      <div class="pillar p-retest">
+        <div class="pname">The Retest</div>
+        <p>Something failed. You went back to the people who know the system, asked what you did wrong, and you're running it again.</p>
+      </div>
+      <div class="pillar p-woo">
+        <div class="pname">The Tash</div>
+        <p>The musings and the wonderings. Your house, your boys, your gut feel. The woo, because that's who you are and people buy from people.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The rules, before you film anything</h2>
+    <div class="rules">
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>One 60-second phone video a day.</strong> One take. No editing, no script, no lighting setup. If you re-record it three times it stops being believable.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Say what you're testing, do it, say what happened.</strong> That's the whole format. Every single day.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Never say a health word.</strong> No heal, treat, cure, fix, reduce, prevent, detox. Not once, not as a joke, not in a caption.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Say "I noticed", never "it does".</strong> You are reporting what you observed in your house. You are not making a claim about anybody else.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>Don't name the brand and don't mention the business.</strong> It's "my water machine". No company name, no income talk, no opportunity. That keeps you safe and keeps practitioners watching.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt"><strong>If it doesn't work, post it anyway.</strong> Those will be your best videos. Then turn it into a Retest.</span></div>
+    </div>
+
+    <div class="callout">
+      <h3>End every single video the same way</h3>
+      <p><strong>"The full list of everything I've tested is on my website."</strong></p>
+      <p>That's it. That one line is what turns thirty videos into a list that belongs to you. Don't sell, don't pitch, don't explain. Just point.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The thirty days</h2>
+    <p class="lede">Every day has the test and a hook to open with. The hook is the first line out of your mouth, before anything else. Change the words to sound like you - just don't lose the doubt in them.</p>
+
+    <!-- WEEK 1 -->
+    <div class="week">
+      <div class="whead">
+        <span class="wnum">Week 1</span>
+        <span class="wtitle">The Kitchen</span>
+        <span class="wnote">Easiest, most visual, zero claims</span>
+      </div>
+
+      <div class="day"><div class="dnum">01</div><div class="dbody">
+        <div class="dtest">Wash supermarket strawberries in 11.5, then show the water afterwards</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I've been told this water will clean my strawberries. I think that's rubbish. Let's find out together."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+        <div class="dnote">Also today: set up two identical plants, one on tap, one on 9.5. You'll film the result on day 22, so start the clock now.</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">02</div><div class="dbody">
+        <div class="dtest">Same test again on grapes</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"If yesterday was a fluke, today will expose it. Same test, different fruit."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">03</div><div class="dbody">
+        <div class="dtest">Soak rice and dried beans, show the soak water</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Nobody warned me what would come out of one cup of rice. I'm a bit horrified, honestly."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">04</div><div class="dbody">
+        <div class="dtest">Boil eggs in 6.0 and see whether the shells actually peel easier</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"If this makes eggs easier to peel I will eat my hat. Two pots, same eggs, same timer."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">05</div><div class="dbody">
+        <div class="dtest">Cook pasta with 9.5 and let the boys taste test it</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I'm handing this one to my boys. They do not care about my feelings and they will absolutely tell me it tastes the same."</span></div>
+        <span class="chip c-woo">The Tash</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">06</div><div class="dbody">
+        <div class="dtest">Blind taste test - tea and coffee, this water against tap</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Two cups, I don't know which is which. I was so sure I'd be able to tell."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">07</div><div class="dbody">
+        <div class="dtest">Week one verdict - what was true and what was rubbish</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Six tests in. Here's what was actually true, and here's what was complete rubbish."</span></div>
+        <span class="chip c-verdict">The Verdict</span>
+      </div></div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week">
+      <div class="whead">
+        <span class="wnum">Week 2</span>
+        <span class="wtitle">The Cleaning Cupboard</span>
+        <span class="wnote">The strongest angle you have</span>
+      </div>
+
+      <div class="day"><div class="dnum">08</div><div class="dbody">
+        <div class="dtest">Count and film every chemical cleaner in the house. Just the count.</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I counted every chemical cleaner in this house this morning. I'm almost embarrassed to say the number out loud."</span></div>
+        <span class="chip c-woo">The Tash</span>
+        <div class="dnote">Say the number. Write it on a bit of paper and hold it up. That number is the spine of the whole week.</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">09</div><div class="dbody">
+        <div class="dtest">The oven, using 11.5 instead of oven cleaner</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"This oven has not been properly cleaned since we moved in. No oven cleaner today. This should be humiliating."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">10</div><div class="dbody">
+        <div class="dtest">Bench and sink with 2.5</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"This is the spray I've used every day for ten years. Today it stays in the cupboard."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">11</div><div class="dbody">
+        <div class="dtest">Windows and mirrors with 6.0</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Streaks. That's the whole test. Either there are streaks or there aren't, and you'll see them same time as me."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">12</div><div class="dbody">
+        <div class="dtest">A full load of laundry with 11.5 instead of detergent</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"A full load of my kids' clothes and no detergent. I am fully expecting to have to rewash all of this."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">13</div><div class="dbody">
+        <div class="dtest">The retest - whatever flopped in week one, run again properly</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"This one didn't work last week. So I asked people who know this system better than me what I did wrong. Round two."</span></div>
+        <span class="chip c-retest">The Retest</span>
+        <div class="dnote">If nothing failed yet, use this day for a grease stain that's already survived three washes.</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">14</div><div class="dbody">
+        <div class="dtest">Week two verdict - how many bottles could genuinely go</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I started the week with that number under my sink. Here's how many I could actually replace, honestly."</span></div>
+        <span class="chip c-verdict">The Verdict</span>
+      </div></div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week">
+      <div class="whead">
+        <span class="wnum">Week 3</span>
+        <span class="wtitle">The Bathroom</span>
+        <span class="wnote">Careful. Observation only, never a claim</span>
+      </div>
+
+      <div class="day"><div class="dnum">15</div><div class="dbody">
+        <div class="dtest">Start rinsing hair with 6.0. Film the before, today.</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Day one of rinsing my hair with this. I'm filming now so you've got the before, and you can judge it yourself in a week."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">16</div><div class="dbody">
+        <div class="dtest">Skin after washing with 6.0 - only what you observe</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I'm not claiming anything here. I'm showing you my face and telling you what I noticed. That's all."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+        <div class="dnote">This is the highest risk day of the month for wording. Watch every word. "I noticed", never "it does".</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">17</div><div class="dbody">
+        <div class="dtest">Makeup removal with 11.5</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Full face of makeup, no micellar water, no wipes. Let's see how far this actually gets."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">18</div><div class="dbody">
+        <div class="dtest">Replace toner for a week and report</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I have spent an absolute fortune on toner over the years. One week without it, starting now."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">19</div><div class="dbody">
+        <div class="dtest">Ask McKelly on camera what he's noticed since the water came back</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"I'm asking my son what he's noticed since the water came back. He does not sugarcoat anything, so this could go badly for me."</span></div>
+        <span class="chip c-woo">The Tash</span>
+        <div class="dnote">Let him say whatever he says. If he says "nothing", post that. It'll be one of your best.</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">20</div><div class="dbody">
+        <div class="dtest">Same question, asked of Quinn</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Same question, second kid, completely different brain. Let's see if I get the same answer."</span></div>
+        <span class="chip c-woo">The Tash</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">21</div><div class="dbody">
+        <div class="dtest">Week three verdict, including the hair after seven days</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"This was the week I was most sceptical about, and I'll be straight with you about all of it."</span></div>
+        <span class="chip c-verdict">The Verdict</span>
+      </div></div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week">
+      <div class="whead">
+        <span class="wnum">Week 4</span>
+        <span class="wtitle">The House, and the Honest Wrap</span>
+        <span class="wnote">Where it all pays off</span>
+      </div>
+
+      <div class="day"><div class="dnum">22</div><div class="dbody">
+        <div class="dtest">The two plants you started on day one - film them side by side</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Three weeks ago I set up two identical plants and two different waters. I genuinely don't know what you're about to see."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">23</div><div class="dbody">
+        <div class="dtest">Bathe the pet and film the coat</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"The dog has not consented to today's experiment and is already suspicious of me."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">24</div><div class="dbody">
+        <div class="dtest">The funky corner - clean the corner of the house whose energy feels off</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Right, this is the woo one. There's a corner of this house that has always felt off to me, and today I'm cleaning it and seeing what shifts."</span></div>
+        <span class="chip c-woo">The Tash</span>
+        <div class="dnote">Lean all the way in. Don't apologise for it or hedge it. This is the video that makes you a person instead of a product demo.</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">25</div><div class="dbody">
+        <div class="dtest">Fridge and the hard water marks</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"These marks have been on my fridge since the day we moved in. I've accepted them as permanent."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">26</div><div class="dbody">
+        <div class="dtest">Toilet and shower with 2.5</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"This is the job nobody wants to film. I'm filming it anyway, because this is the one you actually want to know about."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">27</div><div class="dbody">
+        <div class="dtest">The most ridiculous claim on the whole list, tested properly</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Out of 68 uses, this one actually made me laugh out loud when I read it. So obviously I have to test it."</span></div>
+        <span class="chip c-sceptic">The Sceptic</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">28</div><div class="dbody">
+        <div class="dtest">The one that completely failed - and the retest</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"This is the one that didn't work. I'm posting it anyway, because I said I'd tell you the truth either way."</span></div>
+        <span class="chip c-retest">The Retest</span>
+        <div class="dnote">Highest trust video of the whole month. Do not skip it and do not soften it.</div>
+      </div></div>
+
+      <div class="day"><div class="dnum">29</div><div class="dbody">
+        <div class="dtest">The money - what it costs, and what you've stopped buying</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Let's talk about money, because nobody else will. Here's what I've stopped buying and what that's actually worth over a year."</span></div>
+        <span class="chip c-woo">The Tash</span>
+      </div></div>
+
+      <div class="day"><div class="dnum">30</div><div class="dbody">
+        <div class="dtest">Thirty days later - the full true or false list</div>
+        <div class="hook"><span class="hlabel">Open with</span><span class="htext">"Thirty days. Sixty-eight claims. Here's the honest list, the ones that were true and the ones that weren't."</span></div>
+        <span class="chip c-verdict">The Verdict</span>
+        <div class="dnote">This is the video that sells the guide. Point at the website and stop talking.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>When something doesn't work</h2>
+    <p class="lede">This is the bit most people get wrong, and it's where your credibility actually gets built.</p>
+    <div class="callout">
+      <h3>The retest loop</h3>
+      <p><strong>1.</strong> It failed. Post it. Say plainly that it didn't work for you.</p>
+      <p><strong>2.</strong> Go back to the people who know this system properly and ask what you did wrong. Is there a trick to it? A different pH? A longer soak?</p>
+      <p><strong>3.</strong> Come back on camera: <em>"People who understand this a lot better than me reckon I should have done it this way instead."</em></p>
+      <p><strong>4.</strong> Run the test again. Post whatever happens, including if it fails twice.</p>
+      <p>One failure becomes three videos, and you come out of it looking like the most honest person on the internet. That is worth more than any test that works first go.</p>
+    </div>
+  </section>
+
+  <section class="close">
+    <h2>Before you start</h2>
+    <p class="lede">Don't start until the machine is plugged in and you have internet. You move on the 20th. Aim for the week of 25 August and don't lose a minute of sleep over the gap.</p>
+    <div class="rules">
+      <div class="rule"><span class="rk">→</span><span class="rt">Film day one and day two <strong>on the same afternoon</strong> so you start with a buffer. The first missed day is what kills these.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt">If you miss a day, <strong>skip it and keep going</strong>. Don't double up and don't start over.</span></div>
+      <div class="rule"><span class="rk">→</span><span class="rt">You are not selling anything for thirty days. <strong>You're just the woman testing things in her kitchen.</strong></span></div>
+    </div>
+    <p class="sign">You've already lived the hard version of this. Thirty days of telling the truth about a water machine is the easy part.</p>
+  </section>
+
+</div>
+</body>
+</html>
