@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Everything Tash needs to action, in order, with the time each one takes.">
+<meta name="theme-color" content="#1a5c54">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+<title>Your Next Two Weeks</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#faf8f5;
+  --surface:#ffffff;
+  --surface-2:#f3eee7;
+  --ink:#16211f;
+  --ink-soft:#55625f;
+  --ink-faint:#8a938f;
+  --line:rgba(26,92,84,.16);
+  --teal:#2d8a7e;
+  --teal-deep:#1a5c54;
+  --pink:#d4357f;
+  --berry:#7b2d5f;
+  --amber:#b4761f;
+  --shadow:0 1px 2px rgba(20,50,45,.05),0 8px 24px rgba(20,50,45,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0e1614;
+    --surface:#15201e;
+    --surface-2:#1b2725;
+    --ink:#eaf0ee;
+    --ink-soft:#a3b2ae;
+    --ink-faint:#75837f;
+    --line:rgba(140,215,200,.16);
+    --teal:#54b6a6;
+    --teal-deep:#7fd0c0;
+    --pink:#ff74b0;
+    --berry:#d98cba;
+    --amber:#e0a44a;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0e1614;
+  --surface:#15201e;
+  --surface-2:#1b2725;
+  --ink:#eaf0ee;
+  --ink-soft:#a3b2ae;
+  --ink-faint:#75837f;
+  --line:rgba(140,215,200,.16);
+  --teal:#54b6a6;
+  --teal-deep:#7fd0c0;
+  --pink:#ff74b0;
+  --berry:#d98cba;
+  --amber:#e0a44a;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+
+/* ---------- masthead ---------- */
+.mast{padding:66px 0 44px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:'Permanent Marker',cursive;
+  font-size:15px;letter-spacing:.5px;color:var(--pink);
+  margin:0 0 14px;
+}
+h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;
+  font-size:clamp(38px,7.5vw,62px);
+  line-height:1.05;
+  margin:0 0 20px;
+  text-wrap:balance;
+  letter-spacing:-.015em;
+}
+.standfirst{
+  font-size:18px;color:var(--ink-soft);max-width:62ch;margin:0 0 26px;
+}
+.standfirst em{color:var(--ink);font-style:italic}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:13px;color:var(--ink-faint);
+  padding-top:20px;border-top:1px solid var(--line);
+}
+.meta b{color:var(--teal-deep);font-weight:500}
+
+/* ---------- generic section ---------- */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+h2{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:clamp(25px,4vw,33px);
+  margin:0 0 8px;line-height:1.2;text-wrap:balance;
+}
+.lede{color:var(--ink-soft);font-size:16.5px;margin:0 0 30px;max-width:62ch}
+p{max-width:64ch}
+
+/* ---------- the four pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px;margin-top:26px}
+.pillar{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:22px 20px;box-shadow:var(--shadow);
+  border-top:3px solid var(--pc,var(--teal));
+}
+.pillar .pname{
+  font-family:'Permanent Marker',cursive;
+  font-size:16px;color:var(--pc,var(--teal));margin-bottom:9px;letter-spacing:.3px;
+}
+.pillar p{font-size:14.5px;color:var(--ink-soft);margin:0;line-height:1.6}
+.p-sceptic{--pc:var(--teal)}
+.p-verdict{--pc:var(--berry)}
+.p-retest{--pc:var(--amber)}
+.p-woo{--pc:var(--pink)}
+
+/* ---------- rules ---------- */
+.rules{display:flex;flex-direction:column;gap:2px;margin-top:24px}
+.rule{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px dashed var(--line);
+}
+.rule:last-child{border-bottom:none}
+.rule .rk{
+  font-family:'Permanent Marker',cursive;font-size:14px;color:var(--pink);
+  flex-shrink:0;width:26px;padding-top:1px;
+}
+.rule .rt{font-size:15.5px;color:var(--ink-soft)}
+.rule .rt strong{color:var(--ink);font-weight:500}
+
+/* ---------- weeks + days ---------- */
+.week{margin-top:46px}
+.week:first-of-type{margin-top:30px}
+.whead{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding-bottom:12px;margin-bottom:4px;border-bottom:2px solid var(--teal);
+}
+.wnum{
+  font-family:'Permanent Marker',cursive;font-size:13px;
+  color:var(--pink);letter-spacing:.4px;
+}
+.wtitle{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:24px;color:var(--ink);
+}
+.wnote{font-size:13.5px;color:var(--ink-faint);font-style:italic;margin-left:auto}
+
+.day{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px 0;border-bottom:1px solid var(--line);
+}
+.day:last-child{border-bottom:none}
+.dnum{
+  font-family:'Permanent Marker',cursive;
+  font-size:23px;color:var(--teal);
+  flex-shrink:0;width:42px;text-align:right;
+  font-variant-numeric:tabular-nums;padding-top:2px;
+}
+.dbody{flex:1;min-width:0}
+.dtest{font-size:16.5px;font-weight:500;color:var(--ink);margin-bottom:9px;line-height:1.45}
+.hook{
+  background:var(--surface-2);border-left:3px solid var(--pink);
+  border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:10px;
+}
+.hook .hlabel{
+  font-size:10px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--pink);font-weight:600;display:block;margin-bottom:5px;
+}
+.hook .htext{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-size:16.5px;color:var(--ink);line-height:1.5;
+}
+.chip{
+  display:inline-block;font-family:'Permanent Marker',cursive;
+  font-size:11px;letter-spacing:.6px;
+  padding:3px 11px;border-radius:50px;
+  background:var(--surface-2);color:var(--cc,var(--teal));
+  border:1px solid var(--line);
+}
+.c-sceptic{--cc:var(--teal)}
+.c-verdict{--cc:var(--berry)}
+.c-retest{--cc:var(--amber)}
+.c-woo{--cc:var(--pink)}
+.dnote{font-size:13.5px;color:var(--ink-faint);margin-top:8px;font-style:italic}
+
+/* ---------- callout ---------- */
+.callout{
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:0 12px 12px 0;padding:24px 26px;margin-top:28px;box-shadow:var(--shadow);
+}
+.callout h3{
+  font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:20px;margin:0 0 10px;color:var(--ink);
+}
+.callout p{margin:0 0 10px;color:var(--ink-soft);font-size:15.5px}
+.callout p:last-child{margin-bottom:0}
+.callout strong{color:var(--ink);font-weight:500}
+
+/* ---------- closing ---------- */
+.close{padding:52px 0 74px;border-bottom:none}
+.sign{
+  font-family:'Playfair Display',Georgia,serif;font-style:italic;
+  font-size:19px;color:var(--teal-deep);margin-top:22px;
+}
+a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,.day:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:4px}
+
+@media (max-width:560px){
+  .mast{padding:44px 0 32px}
+  .dnum{width:34px;font-size:20px}
+  .day{gap:13px}
+  .wnote{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<style>
+.task{display:flex;gap:15px;align-items:flex-start;padding:17px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.task:last-child{border-bottom:none}
+.task input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:22px;height:22px;margin:2px 0 0;border:2px solid var(--teal);border-radius:6px;cursor:pointer;position:relative;background:var(--surface);transition:background .15s}
+.task input:checked{background:var(--teal)}
+.task input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.task input:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.tbody{flex:1;min-width:0}
+.ttitle{font-size:16.5px;font-weight:500;color:var(--ink);line-height:1.45}
+.task input:checked ~ .tbody .ttitle{text-decoration:line-through;color:var(--ink-faint);font-weight:400}
+.tmeta{font-size:13.5px;color:var(--ink-soft);margin-top:5px}
+.tmeta a{color:var(--teal-deep)}
+.tmins{display:inline-block;font-family:'Permanent Marker',cursive;font-size:11px;color:var(--pink);margin-left:8px;letter-spacing:.4px}
+.done{font-size:14px;color:var(--ink-faint);padding:11px 0;border-bottom:1px dashed var(--line)}
+.done b{color:var(--teal-deep);font-weight:500}
+.bigl{display:block;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:22px 24px;margin-bottom:13px;text-decoration:none;box-shadow:var(--shadow);transition:transform .15s}
+.bigl:hover{transform:translateX(3px)}
+.bigl .bt{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.bigl .bd{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+.resetb{background:none;border:1px solid var(--line);color:var(--ink-faint);font-family:inherit;font-size:12px;padding:7px 14px;border-radius:6px;cursor:pointer;margin-top:22px}
+.resetb:hover{color:var(--ink)}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Four things this week. That's all.</div>
+    <h1>Your Next Two Weeks</h1>
+    <p class="standfirst">You're moving house and starting a job. So this is deliberately small. <em>Do the things in the first box, ignore everything else until the 25th.</em></p>
+    <div class="meta">
+      <span>From our session <b>18 August</b></span>
+      <span>Next session <b>Tuesday 25 Aug, 2pm</b></span>
+      <span>Ticks save <b>on this device</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>This week, while you're moving</h2>
+    <p class="lede">Four things. None of them take longer than fifteen minutes.</p>
+
+    <div class="task"><input type="checkbox" id="t1"><div class="tbody">
+      <div class="ttitle">Call Enagic support about the broken booking<span class="tmins">15 min</span></div>
+      <div class="tmeta">Denise said this is the one to chase. Nobody can currently book a discovery call through the funnel, so any lead you generate dies there. Ask what's broken and whether you need a new discovery call share code.</div>
+    </div></div>
+
+    <div class="task"><input type="checkbox" id="t2"><div class="tbody">
+      <div class="ttitle">Apply to Commission Factory and Awin<span class="tmins">15 min</span></div>
+      <div class="tmeta">Both free. Approval takes 3 to 5 days, so starting now means you're ready when the content starts. Everything you need is on <a href="/affiliates/">your affiliate page</a>.</div>
+    </div></div>
+
+    <div class="task"><input type="checkbox" id="t3"><div class="tbody">
+      <div class="ttitle">Paste your Instagram and Facebook bios in<span class="tmins">5 min</span></div>
+      <div class="tmeta">From the pack I sent on the 13th. Still outstanding.</div>
+    </div></div>
+
+    <div class="task"><input type="checkbox" id="t4"><div class="tbody">
+      <div class="ttitle">Click both masterclass links and tell me if they work<span class="tmins">10 min</span></div>
+      <div class="tmeta">Go all the way through to the booking step on each. I need to know whether they dead-end at the same broken booking, because if they do we're sending warm people into a wall.</div>
+    </div></div>
+  </section>
+
+  <section>
+    <h2>Read before the 25th</h2>
+    <p class="lede">No action needed. Just have a look so we can talk properly on Tuesday.</p>
+
+    <a class="bigl" href="/skool/">
+      <div class="bt">Should you build a Skool?</div>
+      <div class="bd">The real numbers: what the top 10% charge, how many members they have, and the weekly workload. Read the workload part before the money part. Sit with it, then tell me what you think on Tuesday.</div>
+    </a>
+
+    <a class="bigl" href="/affiliates/">
+      <div class="bt">Your affiliate stack</div>
+      <div class="bd">Nine programs, lowest to highest, all paying in Australia. Includes why Melaleuca isn't one of them and why Amazon isn't worth your time.</div>
+    </a>
+  </section>
+
+  <section>
+    <h2>From the 25th</h2>
+    <a class="bigl" href="/30-days/">
+      <div class="bt">The Sceptic's 30 Days</div>
+      <div class="bd">One video a day, testing a different use of the water, from the angle of someone who doesn't believe it yet. Every day has the test and a hook to open with. Don't start until the machine is plugged in and the internet works.</div>
+    </a>
+    <div class="callout">
+      <h3>Two things only</h3>
+      <p><strong>Film day one and day two on the same afternoon</strong> so you start with a buffer. The first missed day is what kills these.</p>
+      <p><strong>Post the ones that don't work.</strong> Those will be your best videos, and they're the whole reason anyone will believe you.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Keep in the back of your mind</h2>
+    <div class="task"><input type="checkbox" id="t5"><div class="tbody">
+      <div class="ttitle">Dr Olivia Uzma</div>
+      <div class="tmeta">She's leaving to set up her own practice, which means she's kitting out rooms right now. That timing doesn't come around again. You don't have to pitch her - just start the conversation. We'll work out what you say on Tuesday.</div>
+    </div></div>
+    <div class="task"><input type="checkbox" id="t6"><div class="tbody">
+      <div class="ttitle">Any clinic that would run a 30 day trial</div>
+      <div class="tmeta">Machine in the practice, three things they'd want to see change, documented over 30 days. That becomes a case study, which is the proof you currently don't have. Just note down names for now.</div>
+    </div></div>
+  </section>
+
+  <section class="close">
+    <h2>Already done</h2>
+    <div class="done">✓ <b>Your Why</b> - sent, and it's the foundation for everything we write from here</div>
+    <div class="done">✓ <b>Profile photo</b> - updated on your Enagic profile</div>
+    <div class="done">✓ <b>Your website</b> - the lead form was broken and captured nothing. Fixed, tested and live, along with a checklist to give away and a page where you can see your leads</div>
+    <div class="done">✓ <b>Product list</b> - not needed any more, I've built the affiliate list for you instead</div>
+    <button class="resetb" id="reset">Clear my ticks</button>
+    <p class="sign">Four things this week. Everything else can wait until you've got the keys and the kettle on.</p>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var K='tash-start-v1';
+  var saved={};
+  try{ saved=JSON.parse(localStorage.getItem(K)||'{}'); }catch(e){ saved={}; }
+  var boxes=document.querySelectorAll('.task input[type=checkbox]');
+  Array.prototype.forEach.call(boxes,function(b){
+    if(saved[b.id]) b.checked=true;
+    b.addEventListener('change',function(){
+      saved[b.id]=b.checked;
+      try{ localStorage.setItem(K,JSON.stringify(saved)); }catch(e){}
+    });
+  });
+  document.getElementById('reset').addEventListener('click',function(){
+    try{ localStorage.removeItem(K); }catch(e){}
+    Array.prototype.forEach.call(boxes,function(b){ b.checked=false; });
+    saved={};
+  });
+})();
+</script>
+</body>
+</html>
